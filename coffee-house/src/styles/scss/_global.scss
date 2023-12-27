@@ -1,0 +1,42 @@
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  //   border: 1px red solid;
+  @include size-m-w(1440px, auto);
+  display: flex;
+  margin: 0 auto;
+  //   padding: 0 40px;
+
+  @media screen and (min-width: 380px) {
+    padding: 0 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 40px;
+  }
+}
+
+body {
+  background-color: $background-body;
+  font-family: 'Inter', sans-serif;
+}
+
+.main-container {
+  padding-top: 100px;
+  flex: 1 1 auto;
+  //   flex-grow: 1;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.current {
+  text-decoration: underline;
+}

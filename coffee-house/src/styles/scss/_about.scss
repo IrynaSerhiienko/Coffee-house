@@ -1,0 +1,118 @@
+.about {
+  @include size(auto, auto);
+  margin-bottom: 100px;
+
+  .container {
+    flex-direction: column;
+
+    h2 {
+      @include font-setting(normal, 600, 32px, 125%, 0.0001em, $text-dark);
+      margin-bottom: 40px;
+
+      @media screen and (min-width: 768px) {
+        font-size: 60px;
+        text-align: justify;
+      }
+
+      .italic {
+        font-style: italic;
+        line-height: 125%;
+        color: $text-accent;
+      }
+    }
+
+    .img-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      justify-content: center;
+      @include size(100%, auto);
+      //overflow: hidden;
+
+      @media screen and (min-width: 1440px) {
+        flex-direction: row;
+      }
+
+      .column {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        overflow: hidden;
+        border-radius: 20px;
+        gap: 40px;
+
+        @media screen and (min-width: 1440px) {
+          width: 50%;
+        }
+
+        .img1-container,
+        .img2-container,
+        .img3-container,
+        .img4-container {
+          overflow: hidden;
+          border-radius: 20px;
+          width: 100%;
+          max-width: 688px;
+          object-fit: contain;
+
+          @media (hover: hover) {
+            &:hover {
+              img {
+                transform: scale(1);
+                border-radius: 20px;
+              }
+            }
+          }
+
+          //   @media screen and (min-width: 1440px) {
+          //     &:hover {
+          //       img {
+          //         transform: scale(1);
+          //         border-radius: 20px;
+          //       }
+          //     }
+          //   }
+
+          img {
+            transition: transform 0.5s ease-in-out;
+            transform: scale(1.1);
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.img1-container {
+  display: flex;
+  align-self: center;
+  @include size(100%, 590px);
+  overflow: hidden;
+}
+
+.img3-container {
+  display: none;
+  @include size(100%, 430px);
+  overflow: hidden;
+}
+
+.img2-container {
+  display: none;
+  @include size(100%, 430px);
+  overflow: hidden;
+}
+
+.img4-container {
+  display: flex;
+  align-self: center;
+  @include size(100%, 590px);
+  overflow: hidden;
+}
+
+@media screen and (min-width: 1440px) {
+  .img2-container,
+  .img3-container {
+    display: block;
+  }
+}

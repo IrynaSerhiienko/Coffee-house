@@ -1,0 +1,138 @@
+.hero {
+  margin-bottom: 100px;
+
+  .container {
+    .container-video {
+      position: relative;
+
+      @media screen and (min-width: 380px) {
+        padding: 60px 16px;
+        @include size(100%, 552px);
+      }
+
+      @media screen and (min-width: 768px) {
+        padding: 100px 60px;
+        @include size(100%, 644px);
+      }
+
+      @media screen and (min-width: 1440px) {
+        padding: 100px 100px;
+      }
+    }
+  }
+
+  .text {
+    @include font-setting(normal, 400, 16px, 150%, 0.001em, $text-light);
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.video-block {
+  position: absolute;
+  @include size(100%, 100%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 40px;
+  overflow: hidden;
+  z-index: 1;
+
+  //   &::before {
+  //     position: absolute;
+  //     content: '';
+  //     @include size(100%, 100%);
+  //     display: block;
+  //     left: 0;
+  //     top: 0;
+  //     bottom: 0;
+  //     background: rgba(0, 0, 0, 0.3);
+  //     z-index: 1;
+  //   }
+
+  .video {
+    @include size(100%, 100%);
+    object-fit: cover;
+  }
+}
+
+.offer-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  z-index: 2;
+
+  @media screen and (min-width: 380px) {
+    @include size(316px, auto);
+  }
+
+  @media screen and (min-width: 768px) {
+    @include size(530px, auto);
+  }
+}
+
+.tytle {
+  .italic {
+    font-style: italic;
+    line-height: 105%;
+    color: $text-accent;
+  }
+
+  @media screen and (min-width: 380px) {
+    @include font-setting(normal, 600, 42px, 115%, 0.001em, $text-light);
+  }
+
+  @media screen and (min-width: 768px) {
+    @include font-setting(normal, 600, 72px, 105%, 0.001em, $text-light);
+  }
+}
+
+.icon-holder {
+  @include size(20px, 20px);
+  opacity: 1;
+  visibility: visible;
+  margin-left: 0;
+  transition: all ease-in-out 0.3s;
+
+  @media (hover: hover) {
+    @media screen and (min-width: 1440px) {
+      @include size(0, 0);
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+
+.text-holder {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  @include font-setting(normal, 600, 16px, 150%, 0.001em, $text-dark);
+  transition: all ease-in-out 0.3s;
+}
+
+.btn-coffee-menu {
+  @include size(200px, auto);
+  border-radius: 100px;
+  padding: 20px 64px;
+  background-color: $background-body;
+  @include font-setting(normal, 600, 16px, 150%, 0.001em, $text-dark);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+
+  //for devices with pointer (such as a mouse)
+  @media (hover: hover) {
+    @media screen and (min-width: 1440px) {
+      &:hover {
+        .icon-holder {
+          @include size(20px, 20px);
+          //   margin-left: 8px;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

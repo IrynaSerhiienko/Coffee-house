@@ -1,0 +1,243 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100%, 100px);
+  z-index: 100;
+  padding: 20px 0;
+  background-color: $background-body;
+
+  &.active {
+    .nav-container {
+      max-width: 100%;
+      height: 724px;
+      @media screen and (min-width: 768px) {
+        height: 924px;
+      }
+    }
+
+    .list-container {
+      margin-bottom: 100px;
+    }
+
+    .nav-container,
+    .menu-link {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .item:not(:last-child) {
+      margin-bottom: 60px;
+    }
+
+    .section-link,
+    .menu {
+      font-size: 32px;
+      line-height: 125%;
+    }
+
+    .menu {
+      margin-right: 16px;
+      vertical-align: middle;
+    }
+
+    .coffee-menu {
+      display: inline-block;
+      text-align: center;
+      line-height: 40px;
+      //   justify-content: center;
+      //   align-items: center;
+      //   gap: 16px;
+    }
+
+    .cap-container {
+      display: inline-block;
+      @include size(40px, 40px);
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .burger {
+      .line {
+        opacity: 1;
+
+        &::before {
+          transform: translate(-50%, -50%) rotate(45deg);
+          top: 0;
+        }
+
+        &::after {
+          transform: translate(-50%, -50%) rotate(-45deg);
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .container {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.logo-container {
+  display: block;
+  @include size(100px, 60px);
+}
+
+.cap-container {
+  @include size(20px, 20px);
+}
+
+.coffee-menu {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+
+  .menu {
+    @include font-setting(normal, 600, 16px, 150%, 0.001em, $text-dark);
+  }
+}
+
+.coffee-menu,
+.section-link {
+  @include font-setting(normal, 600, 16px, 150%, 0.001em, $text-dark);
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    background-color: $text-dark;
+    transition: width 0.3s;
+  }
+
+  &::before {
+    right: 50%;
+    width: 0;
+  }
+
+  &::after {
+    left: 50%;
+    width: 0;
+  }
+
+  @media (hover: hover) {
+    &:not(.active):hover::before,
+    &:not(.active):hover::after {
+      width: 50%;
+    }
+  }
+
+  &.active {
+    &::before,
+    &::after {
+      width: 50%;
+    }
+  }
+}
+
+.nav-container {
+  padding: 60px 16px;
+  text-align: center;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  // right: 0;
+  width: 60%;
+  visibility: hidden;
+  opacity: 0;
+  //   transform: translateY(-100%);
+  transform: translateX(100%);
+  transition: all ease-in-out 0.45s;
+  @include size(100%, 924px);
+  //   border: 1px solid red;
+  background-color: $background-body;
+
+  &.open {
+    // transform: translateY(0);
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 60px 40px;
+  }
+
+  @media screen and (min-width: 769px) {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    // gap: 40px;
+    transform: translateX(0);
+    padding: 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 76%;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 76%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 66%;
+  }
+
+  .list-container {
+    @media screen and (min-width: 769px) {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      width: 456px;
+    }
+  }
+}
+
+.burger {
+  position: relative;
+  display: block;
+  @include size(44px, 44px);
+  border-radius: 100px;
+  border: 1px solid $border-dark;
+  cursor: pointer;
+
+  .line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // display: block;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      @include size(16px, 1px);
+      background-color: $text-dark;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all ease-in-out 0.5s;
+    }
+
+    &::before {
+      top: -4px;
+    }
+
+    &::after {
+      top: 4px;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}

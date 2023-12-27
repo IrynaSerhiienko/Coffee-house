@@ -1,0 +1,200 @@
+.favorite-coffee {
+  margin-bottom: 100px;
+
+  .container {
+    flex-direction: column;
+    gap: 40px;
+
+    h2 {
+      text-align: center;
+      @include font-setting(normal, 600, 32px, 125%, 0.001em, $text-dark);
+
+      @media screen and (min-width: 768px) {
+        font-size: 60px;
+      }
+
+      .italic {
+        font-style: italic;
+        line-height: 125%;
+        color: $text-accent;
+      }
+    }
+
+    .slider-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include size(100%, auto);
+
+      @media screen and (min-width: 768px) {
+        @include size(100%, auto);
+      }
+
+      .slider {
+        @include size(348px, 532px);
+        // border: 1px solid blue;
+        margin: 0 auto;
+        overflow: hidden;
+
+        &:hover {
+          cursor: pointer;
+          .controls .first.active::before,
+          .controls .second.active::before,
+          .controls .third.active::before {
+            animation-play-state: paused;
+          }
+        }
+
+        @media screen and (min-width: 768px) {
+          @include size(480px, auto);
+        }
+
+        .slider-row {
+          @include size(1440px, 640px);
+          display: flex;
+          position: relative;
+          left: 0;
+          transition: all ease-in-out 1s;
+          // width: calc(100% - 120px);
+
+          &.fast-transition {
+            transition: all ease-in-out 0.5s;
+          }
+
+          .slider-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include size(348px, 532px);
+
+            @media screen and (min-width: 768px) {
+              @include size(480px, auto);
+            }
+
+            .content {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 20px;
+              @include size(348px, auto);
+
+              @media screen and (min-width: 768px) {
+                @include size(100%, auto);
+              }
+              //   max-width: 480px;
+
+              .img-container {
+                @include size(348px, 348px);
+
+                @media screen and (min-width: 768px) {
+                  @include size(480px, 480px);
+                }
+              }
+
+              .description-container {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+                justify-content: center;
+                @include size(100%, auto);
+
+                .title {
+                  @include font-setting(normal, 600, 24px, 125%, 0.001em, $text-dark);
+                }
+
+                .description {
+                  @include font-setting(normal, 400, 16px, 150%, 0.001em, $text-dark);
+                  text-align: center;
+                }
+
+                .price {
+                  @include font-setting(normal, 600, 24px, 125%, 0.001em, $text-dark);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .btn-icon-left,
+      .btn-icon-right {
+        position: absolute;
+        top: 50%;
+        display: none;
+        min-width: 60px;
+        min-height: 60px;
+        border-radius: 100%;
+        border: 1px solid $border-dark;
+        transition: all ease-in-out 0.3s;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+
+        //for devices with pointer (such as a mouse)
+        @media (hover: hover) {
+          &:hover {
+            background-color: $background-container;
+            svg path {
+              stroke: $text-light;
+            }
+          }
+        }
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          @include size(24px, 24px);
+        }
+      }
+
+      .btn-icon-left {
+        left: 0;
+      }
+
+      .btn-icon-right {
+        right: 0;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+
+        .first,
+        .second,
+        .third {
+          @include size(40px, 4px);
+          border-radius: 100px;
+          background-color: $border-light;
+          overflow: hidden;
+
+          &.active {
+
+            &::before {
+              content: '';
+              display: block;
+              @include size(0, 100%);
+              background-color: $border-dark;
+              animation: progressBar 5s ease-in-out forwards;
+            }
+          }
+        }
+
+        @keyframes progressBar {
+          to {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

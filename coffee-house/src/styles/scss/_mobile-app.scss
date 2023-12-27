@@ -1,0 +1,123 @@
+.mobile-app {
+  @include size(100%, auto);
+  margin-bottom: 100px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @media screen and (min-width: 768px) {
+      gap: 100px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &:first-child {
+      align-items: center;
+    }
+
+    .mobile-app-offer-container {
+      display: flex;
+      flex-direction: column;
+      @include size(100%, auto);
+      gap: 40px;
+
+      @media screen and (min-width: 1440px) {
+        width: 50%;
+      }
+
+      .tytle {
+        @include font-setting(normal, 600, 32px, 125%, 0.0001em, $text-dark);
+
+        @media screen and (min-width: 768px) {
+          font-size: 60px;
+        }
+
+        .italic {
+          font-style: italic;
+          line-height: 125%;
+          color: $text-accent;
+        }
+      }
+
+      .text {
+        @include font-setting(normal, 400, 16px, 150%, 0.0001em, $text-dark);
+      }
+    }
+
+    .img-container {
+      @include size(348px, 348px);
+
+      @media screen and (min-width: 768px) {
+        @include size(630px, 630px);
+      }
+
+      @media screen and (min-width: 1440px) {
+        width: 50%;
+      }
+    }
+  }
+}
+
+.bnt-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.btn-app-store,
+.btn-google-play {
+  display: flex;
+  @include size(200px, 64px);
+  background-color: transparent;
+  border: 1px solid $border-dark;
+  border-radius: 100px;
+  padding: 12px 20px;
+  gap: 8px;
+  transition: all ease-in-out 0.3s;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $background-container;
+
+      .text-top,
+      .text-bottom {
+        color: $text-light;
+      }
+
+      .icon-container {
+        path {
+          fill: $text-light;
+        }
+      }
+    }
+  }
+}
+
+.icon-container {
+  @include size(36px, 36px);
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  @include size(92px, auto);
+
+  .text-top {
+    @include font-setting(normal, 600, 10px, 140%, 0.0001em, $text-dark);
+    text-align: start;
+  }
+
+  .text-bottom {
+    @include font-setting(normal, 600, 16px, 150%, 0.0001em, $text-dark);
+  }
+}
