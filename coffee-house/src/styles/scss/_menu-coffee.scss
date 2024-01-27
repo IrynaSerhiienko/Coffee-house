@@ -121,6 +121,10 @@
   background-color: $border-light;
 }
 
+.icon-menu-img {
+  @include size(16px, 24px);
+}
+
 .text {
   @include font-setting(normal, 600, 16px, 150%, 0.001em, $text-dark);
 }
