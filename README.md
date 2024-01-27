@@ -1,6 +1,6 @@
 # coffee-house
 1. Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/coffee-house/coffee-house.md
-2. Deploy: ![Coffee House](https://img.shields.io/badge/Coffee%20House-Visit-orange?style=for-the-badge&logo=Font-Awesome&logoColor=white)[](https://coffee-house-sia.netlify.app/)
+2. Deploy: [![Coffee House](https://img.shields.io/badge/Coffee%20House-Visit-orange?style=for-the-badge&logo=Font-Awesome&logoColor=white)](https://coffee-house-sia.netlify.app/)
 3. Screenshot:
    
 ![image](https://github.com/IrynaSerhiienko/coffee-house/assets/108522040/aff0026e-0a8f-498d-9c7d-adf5f6fa941d)
